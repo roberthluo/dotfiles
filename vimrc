@@ -2,21 +2,28 @@ syntax on
 
 
 "===============================================================================
-" Tab settings
+" Settings
 "===============================================================================
 
-" for js files, 2 spaces
+" js settings
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 
-" for groovy/gradle
-autocmd Filetype groovy setlocal ts=2 sw=2 sts=0 expandtab
+" shell/config/systemd settings
+autocmd FileType fstab,systemd set noexpandtab
+autocmd FileType gitconfig,sh,toml set noexpandtab
 
-" for python files, 2 spaces
-autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
+" python settings
+autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
 
-" for bash files, 4 spaces
+" bash settings
 autocmd Filetype bash setlocal ts=4 sw=4 sts=0 expandtab
 
-" for yaml files, 2 spaces
+" yaml setting
 autocmd Filetype yaml setlocal ts=2 sw=2 sts=0 expandtab
 
+" Go settings
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+" autocmd BufEnter *.go colorscheme nofrils-dark
+
+" spell check for git commits
+autocmd FileType gitcommit setlocal spell
